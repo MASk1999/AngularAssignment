@@ -1,0 +1,17 @@
+<div class="section2">	
+	<label> Value  </label><input type="text"  placeholder="Enter text to search ..." [(ngModel)]="searchValue" (input)="searchForValue()" />  &nbsp;&nbsp;&nbsp;&nbsp;
+	<label> Other  </label><input type="text"  placeholder="Enter text to search ..." [(ngModel)]="searchOther" (input)="searchForOther()"/> <br/>
+</div>
+<table align="center" border="1px"  cellpadding="15" cellspacing="3" class="tableStyles">
+    	<tr> 
+        	<td id="headers"> Value </td>
+            <td id="headers"> Display </td>
+            <td id="headers"> Description </td>
+        </tr>
+        <tr *ngFor= "let v of values">
+        	<td> {{ v.value }} </td>
+            <td> {{ v.display }} </td>
+            <td> {{ v.desc }} </td>
+        </tr>
+	</table>
+    
