@@ -28,7 +28,7 @@ export class ContentComponent implements OnInit {
 			});
 		}
 	}
-	if(this.searchValue==""){
+	else{
 		this._service.getData().subscribe(data => this.values = data);
 	}
 
@@ -44,7 +44,7 @@ export class ContentComponent implements OnInit {
 			});
 		}
 	}
-	if(this.searchOther==""){
+	else{
 		this._service.getData().subscribe(data => this.values = data);
 	}
   }
