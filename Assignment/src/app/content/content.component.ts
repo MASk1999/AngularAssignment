@@ -29,7 +29,7 @@ export class ContentComponent implements OnInit {
 		}
 	}
 	if(this.searchValue==""){
-		this.ngOnInit();
+		this._service.getData().subscribe(data => this.values = data);
 	}
 
   }
@@ -45,7 +45,7 @@ export class ContentComponent implements OnInit {
 		}
 	}
 	if(this.searchOther==""){
-		this.ngOnInit();
+		this._service.getData().subscribe(data => this.values = data);
 	}
   }
 
