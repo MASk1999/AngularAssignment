@@ -20,32 +20,29 @@ export class ContentComponent implements OnInit {
  
   searchForValue()
   {
-	if(this.searchValue.length>=3)
+	if(this.searchValue.length<=2 || this.SearchValue.includes('   ')
 	{
-		if(this.searchValue != ""){
-  			this.values=this.values.filter(res=> {
-	  		  return res.value.toLocaleLowerCase().match(this.searchValue.toLocaleLowerCase());
-			});
-		}
+		this._service.getData.subscribe(data => this.values = data);
 	}
-	else{
-		this._service.getData().subscribe(data => this.values = data);
+	else
+	{
+		this.values=this.values.filter(res=> {
+	  	  return (res.value.toLocaleLowerCase().match(this.searchValue.toLocaleLowerCase());
+		});		
 	}
-
   }
 
   searchForOther()
   {
-	if(this.searchOther.length>=3)
+	if(this.searchOther.length<=2 || this.searchOther.includes('   '))
 	{
-		if(this.searchOther != ""){
-  			this.values=this.values.filter(res=> {
-	  		  return (res.display.toLocaleLowerCase().match(this.searchOther.toLocaleLowerCase())) || (res.desc.toLocaleLowerCase().match(this.searchOther.toLocaleLowerCase()));
-			});
-		}
+		this._service.getData().subscribe(data => this.values = data);		
 	}
-	else{
-		this._service.getData().subscribe(data => this.values = data);
+	else
+	{
+		this.values=this.values.filter(res=> {
+	  	  return (res.display.toLocaleLowerCase().match(this.searchOther.toLocaleLowerCase())) || (res.desc.toLocaleLowerCase().match(this.searchOther.toLocaleLowerCase()));
+		});
 	}
   }
 
